@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP4 Compressor</title>
+    <meta name="description" content="Reduce your MP4 file size by 5x–10x instantly with high quality HEVC compression.">
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MP4 <span>Compressor</span></h1>
+            <p>Reduce your MP4 file size by 5x–10x instantly.</p>
+        </header>
+
+        <main class="glass-panel">
+            <div id="drop-zone" class="drop-zone">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                </div>
+                <h2>Drag &amp; drop your video here</h2>
+                <p>or click to browse</p>
+                <input type="file" id="file-input" accept="video/mp4,video/x-m4v,video/quicktime,video/*" hidden>
+            </div>
+
+            <div id="file-info" class="file-info hidden">
+                <div class="file-details">
+                    <span id="file-name" class="name">video.mp4</span>
+                    <span id="file-size" class="size">24 MB</span>
+                </div>
+                <button id="compress-btn" class="primary-btn">Start Compression</button>
+            </div>
+
+            <div id="progress-container" class="progress-container hidden">
+                <div class="progress-header">
+                    <span class="status">Compressing</span>
+                    <span id="progress-text" class="percent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+                <p id="timemark" class="timemark">00:00:00</p>
+            </div>
+
+            <div id="result-container" class="result-container hidden">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                </div>
+                <h3>Compression Complete</h3>
+                <div class="stats">
+                    <div class="stat-box">
+                        <span>Original</span>
+                        <strong id="stat-original">0 MB</strong>
+                    </div>
+                    <div class="stat-box accent">
+                        <span>Compressed</span>
+                        <strong id="stat-compressed">0 MB</strong>
+                    </div>
+                    <div class="stat-box highlight">
+                        <span>Reduction</span>
+                        <strong id="stat-ratio">0x</strong>
+                    </div>
+                </div>
+                <a id="download-btn" class="primary-btn download-btn" href="#" download>Download Video</a>
+                <button id="reset-btn" class="secondary-btn">Compress Another File</button>
+            </div>
+
+            <div class="panel-footer">
+                <span class="version">v1.0.0</span>
+                <span class="version">Inara Creative Studio</span>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
