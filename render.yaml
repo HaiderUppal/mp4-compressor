@@ -2,7 +2,6 @@ services:
   - type: web
     name: mp4-compressor
     runtime: node
-    buildCommand: npm install && apt-get install -y ffmpeg
     startCommand: npm start
     envVars:
       - key: NODE_ENV
